@@ -10,11 +10,8 @@
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.cards > div:hover {
+  filter: drop-shadow(0 0 2rem #ff0000);
 }
 
 .cards {
@@ -23,6 +20,11 @@
   justify-content: space-between;
 }
 .cards > div {
+  will-change: filter;
+  transition: filter 200ms;
+
+  border-radius: 20px;
+  cursor: pointer;
   margin: 10px 20px;
   text-align: center;
   border: 1px solid white;
