@@ -24,12 +24,6 @@
   z-index: 100;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
 .cards > div:hover {
   filter: drop-shadow(0 0 2rem #ff0000);
 }
@@ -49,14 +43,11 @@
   text-align: center;
   border: 1px solid white;
   background-color: rgb(66, 66, 253);
+  box-shadow: 0px 0px 5px #bebebe;
 }
 
 .cards > div > p {
   padding-bottom: 20px;
   font-size: 2rem;
   font-weight: bold;
-}
-
-.read-the-docs {
-  color: #888;
 }
