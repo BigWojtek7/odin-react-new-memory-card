@@ -4,6 +4,10 @@ import GetImg from '../getImage';
 
 function App() {
   const [photos, setPhotos] = useState([])
+
+  const [result, setResult] = useState(0)
+  const [bestResult, setBestResult] = useState(0)
+
   let ignore = false;
 
   useEffect(()=>{
@@ -16,6 +20,11 @@ function App() {
 
   console.log(photos)
   return (
+    <>
+    <div className="results">
+      <p>Score: {result}</p>
+      <p>Best Score: {bestResult}</p>
+    </div>
     <div className='cards'>
       {photos.map((photo) => (
         <div key={photo.id}>
@@ -24,6 +33,7 @@ function App() {
         </div>
       ))}
     </div>
+    </>
   );
 }
 
