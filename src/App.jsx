@@ -1,25 +1,29 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import fetchData from '../getImage';
+import GetImg from '../getImage';
 
 function App() {
-
-  const [photo, setPhoto] = useState("")
+  const [photos, setPhotos] = useState([])
   let ignore = false;
 
   useEffect(()=>{
-    fetchData(25).then(result =>{
-      if (!ignore) setPhoto(result)
+    GetImg().then(result =>{
+      if (!ignore) setPhotos(result)
     })
     return () => {
       ignore = true;}
   },[])
- 
+
+  console.log(photos)
   return (
-    <>
-    <img src={photo.url} alt="{photo.id}"/>
-    </>
-    
+    <div className='cards'>
+      {photos.map((photo) => (
+        <div key={photo.id}>
+          <img src={photo.url} alt={photo.title} width={300} />
+          <p>{photo.title}</p>
+        </div>
+      ))}
+    </div>
   );
 }
 
