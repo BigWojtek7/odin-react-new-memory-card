@@ -31,7 +31,7 @@ function App() {
 
     
     if(photoId.includes(currentValue)){
-      if(result > bestResult) setBestResult(result)
+      if(result > bestResult)setBestResult(result)
       setResult(0)
       setPhotoId([])
     }else {
@@ -46,9 +46,16 @@ function App() {
   }
   return (
     <>
-    <div className="results">
+    <div className="header">
+      <div className="title">
+        <h1>Pokemon Memory Card Game</h1>
+        <p>Click only one time on the same picture and get point</p>
+
+      </div>
+      <div className="score">
       <p>Score: {result}</p>
       <p>Best Score: {bestResult}</p>
+      </div>
     </div>
     <div className='cards'>
       {photos.map((photo) => (
