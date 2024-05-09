@@ -1,18 +1,36 @@
-import { useEffect } from 'react';
+// import { useEffect, useState } from 'react';
 
-const img = document.querySelector('img');
+export default async function FetchData(number) {
+  // const [photos, setPhotos] = useState([])
+  // const photos = []
+  // const imgNumber = 12;
+  // const pikachuNumber = 25;
 
-export default function Fetch(photos) {
-  useEffect(() => {
-    fetch(
-      'https://api.giphy.com/v1/gifs/translate?api_key=YOUR_KEY_HERE&s=cats',
-      { mode: 'cors' }
-    )
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (response) {
-        img.src = response.data.images.original.url;
-      });
-  });
+  
+    // async function fetchData() {
+    //   for (let i = pikachuNumber; i < pikachuNumber + imgNumber; i += 1) {
+  const response = await fetch(
+    `https://pokeapi.co/api/v2/pokemon/${number}/`,
+    { mode: 'cors' }
+  );
+  const imgData = await response.json();
+  const photo = {
+    id: number,
+    url: imgData.sprites.other['official-artwork'].front_default,
+    title: imgData.name,
+  };
+  return photo;
 }
+    // console.log(photos)
+  
+  // console.log(photos)
+  // return (
+  //   <div>
+  //     {photos.map((photo) => (
+  //       <div key={photo.id}>
+  //         <img src={photo.url} alt={photo.title} width={100} />
+  //       </div>
+  //     ))}
+  //   </div>
+  // );
+
