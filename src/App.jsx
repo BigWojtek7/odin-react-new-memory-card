@@ -11,6 +11,10 @@ function App() {
 
   let ignore = false;
 
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+
   useEffect(() => {
     GetImg().then((result) => {
       if (!ignore) setPhotos(result);
