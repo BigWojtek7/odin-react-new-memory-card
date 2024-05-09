@@ -28,7 +28,7 @@ function App() {
 }
   function handleClick(e) {
     const currentValue = e.currentTarget.dataset.value
-
+    
     
     if(photoId.includes(currentValue)){
       if(result > bestResult)setBestResult(result)
@@ -40,7 +40,11 @@ function App() {
     }
 
     setPhotos(shuffleArray(photos))
-
+   
+    
+    if (currentValue === "25") document.querySelector(".my-audio").play()
+    
+    
     
     
   }
@@ -65,6 +69,7 @@ function App() {
         </div>
       ))}
     </div>
+    <audio className='my-audio' src="/pikachu.ogg" type="audio/ogg"></audio>
     </>
   );
 }
