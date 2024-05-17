@@ -9,7 +9,7 @@ function App() {
   const [result, setResult] = useState(0);
   const [bestResult, setBestResult] = useState(0);
 
-  let ignore = false;
+  
 
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
@@ -17,11 +17,10 @@ function App() {
 
   useEffect(() => {
     GetImg().then((result) => {
-      if (!ignore) setPhotos(result);
+      setPhotos(result);
     });
     return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      ignore = true;
+      setPhotos([])
     };
   }, []);
 
