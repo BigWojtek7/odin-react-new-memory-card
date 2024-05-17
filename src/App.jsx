@@ -9,8 +9,6 @@ function App() {
   const [result, setResult] = useState(0);
   const [bestResult, setBestResult] = useState(0);
 
-  
-
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
   };
@@ -20,7 +18,7 @@ function App() {
       setPhotos(result);
     });
     return () => {
-      setPhotos([])
+      setPhotos([]);
     };
   }, []);
 
