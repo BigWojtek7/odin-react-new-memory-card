@@ -3,7 +3,6 @@ export default async function GetImg() {
   const initialJson = await initial.json();
 
   const detailsData = initialJson.results.map(async (i) => {
-    console.log(i.url);
     const preFetchData = await fetch(i.url);
     return preFetchData.json();
   });
